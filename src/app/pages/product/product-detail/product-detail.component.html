@@ -1,1 +1,38 @@
-<p>product-detail works!</p>
+
+<div class="card">
+
+    <div class="card-title">
+        <h1>Cadastro de categorias</h1>
+    </div>
+
+    <form class="form-group" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <div class="detail-action example-form-fields ">
+        <button  routerLink="/product">Voltar</button>
+        <button  type="submit">Salvar</button>
+        <button  type="button" (click)="onDelete()" *ngIf="!isNewRecord()">Excluir</button>
+      </div>
+      <mat-form-field >
+        <mat-label>Produto</mat-label>
+        <input matInput formControlName="name" placeholder="Nome do produto" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Select</mat-label>
+        <mat-select formControlName="categoryId">
+          <mat-option *ngFor="let c of categories"  [value]="c.id">
+            {{c.name}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Descrição</mat-label>
+        <textarea matInput formControlName="description" placeholder="Descrição para este produto" ></textarea>
+      </mat-form-field>
+
+    
+     
+  </form>
+
+ 
+  </div> 

@@ -6,17 +6,24 @@ import { Category } from '../../../interface/category';
 import { CategoryService } from '../../../services/category/category.service';
 import { CATEGORY } from '../../../const/ServerConstants';
 
+import {ChangeDetectionStrategy} from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-category-detail',
   standalone: true,
-  imports: [],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,MatSelectModule, CommonModule],
   templateUrl: './category-detail.component.html',
-  styleUrl: './category-detail.component.css'
+  styleUrl: './category-detail.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
+
+
 export class CategoryDetailComponent {
-
-
-
 
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
   router = inject(Router);
@@ -36,6 +43,7 @@ export class CategoryDetailComponent {
   constructor(){ }
 
   ngOnInit() {
+  
 
     // Propriedades do form
     this.loadForm();

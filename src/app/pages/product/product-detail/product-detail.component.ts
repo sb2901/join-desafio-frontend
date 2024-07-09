@@ -1,14 +1,21 @@
 import { Component, inject } from '@angular/core';
-import { ProductService } from '../../../services/product/product.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Product } from '../../../interface/product';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ProductService } from '../../../services/product/product.service';
+import { Product } from '../../../interface/product';
 import { PRODUCT } from '../../../const/ServerConstants';
+import { CategoryService } from '../../../services/category/category.service';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [],
+  imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,MatSelectModule, CommonModule],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
@@ -18,21 +25,23 @@ export class ProductDetailComponent {
   router = inject(Router);
 
   productService = inject(ProductService);
+  categoryService = inject(CategoryService);
 
+  public categories: any[] = [];
   public productForm: any; 
 
   private productId:number=0;
 
   private product : Product ={
                   id:undefined,
-                  name: "",
-                  category: undefined
-  };
+                  name: ""};
 
   constructor(){ }
 
   ngOnInit() {
 
+    //Carrega as categorias existentes
+    this.loadCategories();
     // Propriedades do form
     this.loadForm();
     //id do produto
@@ -47,8 +56,7 @@ export class ProductDetailComponent {
   
       this.product = {
         id:undefined,
-        name: "",
-        category: undefined
+        name: ""
       };
       this.productForm.patchValue(this.product);
       
@@ -67,6 +75,22 @@ export class ProductDetailComponent {
             }
         });
      }
+   }
+
+   loadCategories() {
+    this.categoryService.getAll()
+    .subscribe(
+      {
+          next: (list:any) => {
+            console.log(list);
+            this.categories = list ;
+           
+          },
+          error: (erro:any) => {
+                  alert("Erro ao obter a lista de categorias");
+                  console.log(erro)
+          }
+      });
    }
 
   /**
@@ -153,7 +177,7 @@ export class ProductDetailComponent {
       name: new FormControl('', [Validators.required]),
       description: new FormControl('', []),
       id: [''],
-      category: new FormControl('', []),
+      categoryId: new FormControl('', [Validators.required]),
       }) ;
   }
 

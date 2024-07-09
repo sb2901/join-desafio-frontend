@@ -3,12 +3,13 @@ import { CategoryService } from '../../services/category/category.service';
 import { Router } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { Category } from '../../interface/category';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
 
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatFormField, MatLabel],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
