@@ -3,15 +3,21 @@ import { CategoryComponent } from './pages/category/category.component';
 import { CategoryDetailComponent } from './pages/category/category-detail/category-detail.component';
 import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 import { ProductComponent } from './pages/product/product.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
 
-    {
+      {
         path: '', 
-        redirectTo: 'category', 
+        redirectTo: 'home', 
         pathMatch: 'full'
       },
      
+      {
+        path: 'home', 
+        title: 'Cadastro de Categorias e Produtos',
+        component: HomeComponent, 
+      },
       {
         path: 'category', 
         title: 'Categoria',

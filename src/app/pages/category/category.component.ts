@@ -1,15 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { CategoryService } from '../../services/category/category.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import {MatTableModule} from '@angular/material/table';
 import { Category } from '../../interface/category';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatIcon } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [MatTableModule, MatFormField, MatLabel],
+  imports: [MatTableModule, MatIcon,RouterModule, CommonModule ],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })

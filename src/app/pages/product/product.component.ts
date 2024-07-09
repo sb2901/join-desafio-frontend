@@ -1,16 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Product } from '../../interface/product';
 import { MatTableModule } from '@angular/material/table';
 import { PRODUCT } from '../../const/ServerConstants';
 import { Category } from '../../interface/category';
 import { CategoryService } from '../../services/category/category.service';
+import { MatIcon } from '@angular/material/icon';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatIcon, RouterModule, CommonModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
