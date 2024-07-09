@@ -1,11 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { ProductService } from '../../services/product/product.service';
 import { Router } from '@angular/router';
+import { Product } from '../../interface/product';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [],
+  imports: [MatTableModule],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -14,8 +16,9 @@ export class ProductComponent {
   productService = inject(ProductService);
   router = inject(Router);
 
-  productList:any =[];
-  displayedColumns: string[] = [ 'name', 'category'];
+  //Table configurations
+  displayedColumns: string[] = ['name', 'category'];
+  productDataSource:Product[] =[];
 
   constructor(){}
 
@@ -25,7 +28,8 @@ export class ProductComponent {
     .subscribe(
       {
         next: (list) => {
-          this.productList = list;
+          this.productDataSource = list as Product[];
+          console.log(this.productDataSource);
         },
         error: (erro) => {
           alert("Erro ao obter a lista de produtos");
@@ -35,4 +39,11 @@ export class ProductComponent {
     );
   }
 
+  onRowClick(event:any){
+    console.log(event);
+    //Navega para tela de edição
+    this.router.navigate(['/category/detail/'+event.id]);
+  }
+
 }
+

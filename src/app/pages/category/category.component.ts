@@ -1,21 +1,28 @@
 import { Component, inject } from '@angular/core';
 import { CategoryService } from '../../services/category/category.service';
 import { Router } from '@angular/router';
+import {MatTableModule} from '@angular/material/table';
+import { Category } from '../../interface/category';
+
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [],
+  imports: [MatTableModule],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css'
 })
 export class CategoryComponent {
 
-  categoyService = inject(CategoryService);
   router = inject(Router);
 
-  categoryList:any =[];
-  displayedColumns: string[] = [ 'name'];
+  //Table configurations
+  displayedColumns: string[] = ['name'];
+  categoryDataSource:Category[] =[];
+
+  //Service
+  categoyService = inject(CategoryService);
+ 
 
   constructor(){}
 
@@ -25,7 +32,7 @@ export class CategoryComponent {
     .subscribe(
       {
         next: (list) => {
-          this.categoryList = list;
+          this.categoryDataSource = list as Category[];
         },
         error: (erro) => {
           alert("Erro ao obter a lista de categorias");
@@ -33,6 +40,12 @@ export class CategoryComponent {
         }
       }
     );
+  }
+
+  onRowClick(event:any){
+    console.log(event);
+    //Navega para tela de edição
+    this.router.navigate(['/category/detail/'+event.id]);
   }
 
 }
