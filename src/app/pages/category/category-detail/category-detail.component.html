@@ -1,27 +1,40 @@
 
 <div class="card">
 
-    <div class="card-title">
-        <h1>Cadastro de categorias</h1>
-    </div>
-
+ 
     <form class="form-group" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-      <div class="detail-action example-form-fields ">
+      <div class="form">
+
+        <div class="card-title top-left">
+          <span>Cadastro de categorias</span>
+        </div>
+      
+      <div class="top-right ">
         <button  routerLink="/category">Voltar</button>
         <button  type="submit">Salvar</button>
         <button  type="button" (click)="onDelete()" *ngIf="!isNewRecord()">Excluir</button>
       </div>
-      <mat-form-field >
-        <mat-label>Categoria2</mat-label>
-        <input matInput formControlName="name" placeholder="Insira o nome da categoria" />
-      </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Descrição</mat-label>
-        <textarea matInput formControlName="description" placeholder="Insira uma descrição para esta categoria" ></textarea>
-      </mat-form-field>
 
-    
+      <div class="form-field">
+        <div>
+        <mat-form-field >
+          <mat-label>Categoria2</mat-label>
+          <input matInput formControlName="name" placeholder="Insira o nome da categoria" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Descrição</mat-label>
+          <textarea matInput formControlName="description" placeholder="Insira uma descrição para esta categoria" ></textarea>
+        </mat-form-field>
+      </div>
+      </div>
+
+
+      
+
+    </div>
      
   </form>
 
