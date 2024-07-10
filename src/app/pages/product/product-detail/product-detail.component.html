@@ -5,7 +5,7 @@
         <div class="form">
 
             <div class="card-title top-left">
-                <span>Produtos</span>
+                <span class="tittle">Produtos</span>
             </div>
 
             <div class="top-right ">
@@ -26,7 +26,7 @@
 
                 <div>
                     <mat-form-field>
-                        <mat-label>Select</mat-label>
+                        <mat-label>Categoria</mat-label>
                         <mat-select formControlName="categoryId">
                               <mat-option *ngFor="let c of categories"  [value]="c.id">
                                 {{c.name}}
