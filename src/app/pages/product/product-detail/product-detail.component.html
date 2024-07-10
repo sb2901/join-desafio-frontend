@@ -1,0 +1,54 @@
+
+<div class="card">
+
+    <form class="form-group" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="form">
+
+            <div class="card-title top-left">
+                <span>Produtos</span>
+            </div>
+
+            <div class="top-right ">
+              <button  type="button" (click)="onCameBack()">Voltar</button>
+              <button  type="submit">Salvar</button>
+              <button  type="button" (click)="onDelete()" *ngIf="!isNewRecord()">Excluir</button>
+            </div>
+        
+
+            <div class="form-field">
+
+                <div>
+                    <mat-form-field >
+                      <mat-label>Produto</mat-label>
+                      <input matInput formControlName="name" placeholder="Nome do produto" />
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Select</mat-label>
+                        <mat-select formControlName="categoryId">
+                              <mat-option *ngFor="let c of categories"  [value]="c.id">
+                                {{c.name}}
+                              </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field>
+                        <mat-label>Descrição</mat-label>
+                        <textarea matInput formControlName="description" placeholder="Descrição para este produto" ></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+    
+     
+  </form>
+
+ 
+</div> 
+
+

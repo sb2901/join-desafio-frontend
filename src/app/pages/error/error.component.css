@@ -1,0 +1,11 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  } 
+
+  .error{
+    margin-top: 100px;
+    height: 100%;
+  }
