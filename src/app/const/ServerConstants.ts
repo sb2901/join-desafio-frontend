@@ -10,3 +10,5 @@ export const HTTP_OPTIONS_JSON = {
 
   export const CATEGORY: string = "/category";
 
+  export const ERROR: string = "/error";
+

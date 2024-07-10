@@ -37,7 +37,7 @@ export class CategoryComponent {
           this.categoryDataSource = list as Category[];
         },
         error: (erro) => {
-          alert("Erro ao obter a lista de categorias");
+        //  alert("Erro ao obter a lista de categorias");
           console.log(erro)
         }
       }

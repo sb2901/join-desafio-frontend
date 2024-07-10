@@ -20,8 +20,10 @@
 
 .card-title{
   position: absolute;
-  margin-top: 10px;
+  margin-top: 15px;
   height: 50px;
+  font-size: 48px;
+  text-align: center;
 }
 
 .form-field{

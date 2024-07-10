@@ -181,5 +181,8 @@ export class ProductDetailComponent {
       }) ;
   }
 
+  onCameBack(){
+    this.router.navigate([PRODUCT]);
+}
 
 }

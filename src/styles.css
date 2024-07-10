@@ -1,0 +1,16 @@
+button:not(:disabled) {
+    color: var(--mdc-text-button-label-text-color);
+}
+
+button {
+    padding: 0 var(--mat-text-button-horizontal-padding, 8px);
+    height: var(--mdc-text-button-container-height);
+    font-family: var(--mdc-text-button-label-text-font);
+    font-size: var(--mdc-text-button-label-text-size);
+    letter-spacing: var(--mdc-text-button-label-text-tracking);
+    text-transform: var(--mdc-text-button-label-text-transform);
+    font-weight: var(--mdc-text-button-label-text-weight);
+    font-family: var(--mdc-text-button-label-text-font);
+    font-size: var(--mdc-text-button-label-text-size);
+}
+

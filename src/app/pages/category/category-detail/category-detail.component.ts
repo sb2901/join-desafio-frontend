@@ -163,10 +163,13 @@ export class CategoryDetailComponent {
       let fb = new FormBuilder();
       this.categoryForm = fb.group({
       name: new FormControl('', [Validators.required]),
-      description: new FormControl('', []),
+      description: new FormControl('', [Validators.required]),
       id: [''],
       }) ;
   }
 
+  onCameBack(){
+      this.router.navigate([CATEGORY]);
+  }
 
 }
