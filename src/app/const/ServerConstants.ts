@@ -12,3 +12,7 @@ export const HTTP_OPTIONS_JSON = {
 
   export const ERROR: string = "/error";
 
+  export const LOGIN: string = "/login";
+
+  
+
