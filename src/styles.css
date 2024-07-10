@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 button:not(:disabled) {
     color: var(--mdc-text-button-label-text-color);
 }
@@ -12,5 +16,17 @@ button {
     font-weight: var(--mdc-text-button-label-text-weight);
     font-family: var(--mdc-text-button-label-text-font);
     font-size: var(--mdc-text-button-label-text-size);
+    border-radius: 5px;
+    border: none;
+
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    padding: 8px 15px;
+
 }
 
+.tittle span {
+    font-size: 26px;
+    font-weight: bold;
+}
