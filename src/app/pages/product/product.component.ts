@@ -31,8 +31,6 @@ export class ProductComponent {
   constructor(){}
 
   ngOnInit(){
-    
-
     //Carrega as categorias existentes
    this.loadCategories();
 
@@ -57,7 +55,6 @@ export class ProductComponent {
     this.router.navigate([`/${PRODUCT}/detail/`+event.id]);
   }
 
-
   loadCategories() {
     this.categoryService.getAll()
     .subscribe(
@@ -80,4 +77,3 @@ export class ProductComponent {
    }
 
 }
-
