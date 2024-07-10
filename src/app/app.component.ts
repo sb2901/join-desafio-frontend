@@ -4,6 +4,7 @@ import { MatToolbar } from '@angular/material/toolbar';
 import { Router, RouterOutlet } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,6 +17,7 @@ export class AppComponent {
 
   router = inject(Router);
   public authService = inject(AuthService);
+
 
   onInitClick(){
     this.router.navigate(['/home']);
