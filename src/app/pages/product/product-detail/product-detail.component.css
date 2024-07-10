@@ -24,8 +24,8 @@
   height: 50px;
   font-size: 48px;
   text-align: center;
+  font-weight: bold;
 }
-
 
 .form-field{
   position: absolute;
