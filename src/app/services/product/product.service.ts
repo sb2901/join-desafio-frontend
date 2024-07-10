@@ -16,7 +16,7 @@ export class ProductService {
 
   
   getAll() {
-    return this.httpClient.get(`${this.baseUrl}/list`,  HTTP_OPTIONS_JSON);
+    return this.httpClient.get(`${this.baseUrl}`,  HTTP_OPTIONS_JSON);
   }
 
   get(id: number) {

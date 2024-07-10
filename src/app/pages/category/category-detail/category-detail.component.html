@@ -1,1 +1,36 @@
-<p>category-detail works!</p>
+
+<div class="card">
+ 
+    <form class="form-group" [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+        <div class="form">
+
+            <div class="card-title top-left">
+              <span>Categorias</span>
+            </div>
+      
+            <div class="top-right ">
+              <button  type="button" (click)="onCameBack()">Voltar</button>
+              <button  type="submit">Salvar</button>
+              <button  type="button" (click)="onDelete()" *ngIf="!isNewRecord()">Excluir</button>
+            </div>
+
+
+            <div class="form-field">
+                <div>
+                    <mat-form-field >
+                        <mat-label>Categoria</mat-label>
+                        <input matInput formControlName="name" placeholder="Insira o nome da categoria" />
+                    </mat-form-field>
+                </div>
+
+              <div>
+                  <mat-form-field>
+                      <mat-label>Descrição</mat-label>
+                      <textarea matInput formControlName="description" placeholder="Insira uma descrição para esta categoria" ></textarea>
+                  </mat-form-field>
+              </div>
+          </div>
+        </div>
+     
+    </form>
+</div> 
